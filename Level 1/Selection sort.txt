@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+//Best ,Average and worst case are O(n2)
+
+void printArr(vector<int> v){
+    for(int i=0;i<v.size();i++){
+        cout<<v[i]<<endl;
+    }
+}
+
+void mySwap(vector<int> &v,int j,int i){
+    cout<<"Swapping "<<v[i]<<" and "<<v[j]<<endl;
+    int temp=v[j];
+    v[j]=v[i];
+    v[i]=temp;
+}
+
+void sssort(vector<int> &v){
+    for(int i=0;i<v.size()-1;i++){
+        int actminIndx=i;
+        for(int j=i+1;j<v.size();j++){
+            cout<<"Comparing "<<v[j]<<" and "<<v[actminIndx]<<endl;
+            if(v[j]<v[actminIndx]){
+                actminIndx=j;
+            }
+        }
+        
+            mySwap(v,actminIndx,i);
+        
+    }
+}
+
+int main(){
+    int n,temp;
+    cin>>n;
+    vector<int> v;
+    for(int i=0;i<n;i++){
+        cin>>temp;
+        v.push_back(temp);
+    }
+    sssort(v);
+    printArr(v);
+    return 0;
+}
